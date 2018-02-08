@@ -26,8 +26,7 @@ if __name__ == '__main__':
         handle = Entrez.efetch(db='nucleotide', rettype = 'gb', retmode = 'text', \
                     id=id_by_arg)
     except HTTPError as e:
-        print(e)
-        print('Error: {}'.format(e.args[0]))
+        print('Error: {}'.format(e.msg))
         sys.exit(1)
     
     lst_seq_record = SeqIO.read(handle, 'gb')
